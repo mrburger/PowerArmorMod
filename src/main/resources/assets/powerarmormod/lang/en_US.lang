@@ -1,0 +1,19 @@
+//Items
+item.spacealloy.name=Space-Age Alloy
+item.vanadium.name=Vanadium Chunk
+item.vanadiumingot.name=Vanadium Ingot
+item.armorplate.name=Space-Age Armor Plate
+item.advarmorplate.name=Composite Armor Plate
+item.powerhelmet.name=T-45D Power Armor Helmet
+item.powerlegs.name=T-45D Power Armor Leggings
+item.powerchest.name=T-45D Power Armor Chestplate
+item.powerboots.name=T-45D Power Armor Boots
+item.t51helmet.name=T-51B Power Armor Helmet
+item.t51legs.name=T-51B Power Armor Leggings
+item.t51chest.name=T-51B Power Armor Chestplate
+item.t51boots.name=T-51B Power Armor Boots
+item.mfpack.name=TX-28 Microfusion Pack
+
+
+//Blocks
+tile.vanadiumOre.name= Vanadium Ore

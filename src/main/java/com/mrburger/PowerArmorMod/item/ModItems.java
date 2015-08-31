@@ -1,0 +1,67 @@
+package com.mrburger.PowerArmorMod.item;
+
+import com.mrburger.PowerArmorMod.Reference.Reference;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraftforge.common.util.EnumHelper;
+
+/**
+ * Created by mrburgerUS on 8/23/2015.
+ */
+public class ModItems {
+
+    public static ItemArmor.ArmorMaterial POWERARMOR = EnumHelper.addArmorMaterial("POWERARMOR", 100, new int[]{3, 8, 6, 3}, 0);
+    public static ItemArmor.ArmorMaterial T51B = EnumHelper.addArmorMaterial("T51B", 1000, new int[]{3, 8, 6, 3}, 0);
+
+
+    public static Item vanadium;
+public static Item vanadiumIngot;
+    public static Item spacealloy;
+    public static Item armorplate;
+    public static Item powerHelmet;
+    public static Item powerChest;
+    public static Item powerLeggings;
+    public static Item powerBoots;
+    public static Item advarmorplate;
+    public static Item t51Helmet;
+    public static Item t51Chest;
+    public static Item t51Legs;
+    public static Item t51Boots;
+    public static Item mfPack;
+
+    public static final void init() {
+        vanadium = new Item().setUnlocalizedName("vanadium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"vanadium");
+        GameRegistry.registerItem(vanadium, "vanadium");
+
+        vanadiumIngot = new Item().setUnlocalizedName("vanadiumingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"vanadiumingot");
+        GameRegistry.registerItem(vanadiumIngot, "vanadiumingot");
+
+        spacealloy = new Item().setUnlocalizedName("spacealloy").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"spacealloy");
+        GameRegistry.registerItem(spacealloy, "spacealloy");
+
+        armorplate = new Item().setUnlocalizedName("armorplate").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"armorplate");
+        GameRegistry.registerItem(armorplate, "armorplate");
+
+        advarmorplate = new Item().setUnlocalizedName("advarmorplate").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"advarmorplate");
+        GameRegistry.registerItem(advarmorplate, "advarmorplate");
+
+        mfPack =  new Item().setUnlocalizedName("mfpack").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID + ":" + "mfpack");
+        GameRegistry.registerItem(mfPack, "mfpack");
+
+        GameRegistry.registerItem(powerHelmet = new T45DArmor("powerhelmet", POWERARMOR, "powerhelmet", 0), "powerhelmet");
+        GameRegistry.registerItem(powerChest = new T45DArmor("powerchest", POWERARMOR, "powerchest", 1), "powerchest");
+        GameRegistry.registerItem(powerLeggings = new T45DArmor("powerlegs", POWERARMOR, "powerlegs", 2), "powerlegs");
+        GameRegistry.registerItem(powerBoots = new T45DArmor("powerboots", POWERARMOR, "powerboots", 3), "powerboots");
+
+        GameRegistry.registerItem(t51Helmet = new T51BArmor ("t51helmet", T51B, "t51helmet", 0), "t51helmet");
+        GameRegistry.registerItem(t51Chest = new T51BArmor("t51chest", T51B, "t51chest", 1), "t51chest");
+        GameRegistry.registerItem(t51Legs = new T51BArmor("t51legs", T51B, "t51legs", 2), "t51legs");
+        GameRegistry.registerItem(t51Boots = new T51BArmor("t51boots", T51B, "t51boots", 3), "t51boots");
+
+    }
+
+
+
+}
