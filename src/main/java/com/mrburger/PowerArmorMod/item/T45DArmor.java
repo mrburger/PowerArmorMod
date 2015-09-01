@@ -6,6 +6,7 @@ import com.mrburger.PowerArmorMod.ClientProxy;
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,6 +19,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ISpecialArmor;
+import net.minecraftforge.common.MinecraftForge;
 
 import java.util.List;
 
@@ -71,7 +73,7 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
     }
 
 
-   /* @Override
+    @Override
     public int getDisplayDamage(ItemStack stack) {
 
         if (stack.stackTagCompound == null) {
@@ -84,12 +86,6 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
 
         super.setDamage(stack, 0);
     }
-*/
-   public int getDisplayDamage(ItemStack stack) {
-       
-       return energyMax - stack.stackTagCompound.getInteger("Energy");
-   }
-
 
 
     @Override
@@ -170,6 +166,7 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
 
         }
     }
+
     @Override
     public boolean isDamaged(ItemStack stack) {
 
@@ -177,8 +174,10 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
     }
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
-        list.add("Energy: " + stack.stackTagCompound.getInteger("Energy") + " / " + energyMax);
+        list.add("Energy: " + this.energyTag + " / " + energyMax);
     }
+
+
 
     @Override
     @SideOnly(Side.CLIENT)

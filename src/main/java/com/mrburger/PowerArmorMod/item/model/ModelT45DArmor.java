@@ -274,12 +274,13 @@ public class ModelT45DArmor extends ModelBiped
   {
     super.render(entity, f, f1, f2, f3, f4, f5);
       setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-    bipedBody.render(f5 * 1.7F);
-      bipedHead.render(f5 * 1.5F);
+    bipedBody.render(f5 * 2.0F);
+      bipedHead.render(f5 * 2.0F);
       bipedLeftArm.render(f5*1.1F);
       bipedRightArm.render(f5*1.1F);
       bipedLeftLeg.render(f5*1.1F);
       bipedRightLeg.render(f5*1.1F);
+
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)

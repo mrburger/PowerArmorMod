@@ -17,8 +17,8 @@ public class ModCrafting {
         GameRegistry.addSmelting(ModItems.spacealloy, new ItemStack(ModItems.armorplate), 1.0F);
         GameRegistry.addRecipe(new ItemStack(ModItems.spacealloy, 2), new Object[]{"#I", "I#", '#', Items.iron_ingot, 'I', ModItems.vanadiumIngot});
         GameRegistry.addRecipe(new ItemStack(ModItems.spacealloy, 2), new Object[]{"##", "##", '#', ModItems.spacealloy});
-        GameRegistry.addRecipe(new ItemStack(ModItems.advarmorplate, 2), new Object[]{"#I", "I#", '#',Items.netherbrick, 'I', ModItems.vanadiumIngot});
-
+        GameRegistry.addRecipe(new ItemStack(ModItems.advarmorplate, 2), new Object[]{"#I", "I#", '#', Items.netherbrick, 'I', ModItems.vanadiumIngot});
+GameRegistry.addRecipe(new ItemStack(ModItems.mfPack), new Object[]{"*#*", "#r#", "*#*", '*', ModItems.vanadiumIngot, '#', Items.gold_ingot, 'r', Items.redstone});
 
         GameRegistry.addRecipe(new ItemStack(ModItems.powerHelmet), new Object[]{"#I#","# #", '#', ModItems.armorplate, 'I', ModItems.mfPack});
         GameRegistry.addRecipe(new ItemStack(ModItems.powerChest), new Object[]{"# #","#I#","###", '#', ModItems.armorplate, 'I', ModItems.mfPack});
