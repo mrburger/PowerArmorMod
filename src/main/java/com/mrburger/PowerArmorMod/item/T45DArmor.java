@@ -37,10 +37,10 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
 
     }
     private double totalAbsorption = 0.85D;
-    private int transferMax = 100;
+    private int transferMax = 1000;
     private int energyMax = (int) 1E5;
     private int damageEnergy = 250;
-    public static final String energyTag = "Energy";
+
 
 
 
@@ -63,6 +63,12 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
     }
 
     @Override
+    public boolean getIsRepairable(ItemStack itemRepair, ItemStack stack) {
+
+        return false;
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type){
         if (stack.getItem() == ModItems.powerChest || stack.getItem() == ModItems.powerHelmet || stack.getItem() == ModItems.powerBoots) {
@@ -79,7 +85,7 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (stack.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(stack, 0);
         }
-        return energyMax - stack.stackTagCompound.getInteger("Energy");
+        return energyMax - stack.stackTagCompound.getInteger("EnergyT45");
     }
     @Override
     public void setDamage(ItemStack stack, int damage) {
@@ -93,14 +99,14 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (container.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(container, 0);
         }
-        int stored = container.stackTagCompound.getInteger(energyTag);
+        int stored = container.stackTagCompound.getInteger("EnergyT45");
         int receive = Math
                 .min(maxReceive, Math.min(getMaxEnergyStored(container)
                         - stored, transferMax));
 
         if (!simulate) {
             stored += receive;
-            container.stackTagCompound.setInteger(energyTag, stored);
+            container.stackTagCompound.setInteger("EnergyT45", stored);
         }
         return receive;
     }
@@ -110,12 +116,12 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (container.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(container, 0);
         }
-        int stored = container.stackTagCompound.getInteger(energyTag);
+        int stored = container.stackTagCompound.getInteger("EnergyT45");
         int extract = Math.min(maxExtract, stored);
 
         if (!simulate) {
             stored -= extract;
-            container.stackTagCompound.setInteger(energyTag, stored);
+            container.stackTagCompound.setInteger("EnergyT45", stored);
         }
         return extract;
     }
@@ -125,7 +131,7 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (container.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(container, 0);
         }
-        return container.stackTagCompound.getInteger(energyTag);
+        return container.stackTagCompound.getInteger("EnergyT45");
     }
 
     @Override
@@ -151,15 +157,15 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         extractEnergy(stack, damage * damageEnergy, false);
     }
     @Override
-    public void onArmorTick(World w, EntityPlayer player, ItemStack me) {
+    public void onArmorTick(World w, EntityPlayer player, ItemStack armor) {
         if (player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() == ModItems.powerChest
                 && player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() == ModItems.powerLeggings
-                && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.powerBoots) {
+                && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.powerBoots && (this.getEnergyStored(armor) > 100)) {
             player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20, 1));
-            if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() == ModItems.powerHelmet
-                    && player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() == ModItems.powerChest
-                    && player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() == ModItems.powerLeggings
-                    && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.powerBoots) {
+            if ((player.inventory.armorItemInSlot(3) != null) && (player.inventory.armorItemInSlot(3).getItem() == ModItems.powerHelmet)
+                    && (player.inventory.armorItemInSlot(2) != null) && (player.inventory.armorItemInSlot(2).getItem() == ModItems.powerChest)
+                    && (player.inventory.armorItemInSlot(1) != null) && (player.inventory.armorItemInSlot(1).getItem() == ModItems.powerLeggings)
+                    && (player.inventory.armorItemInSlot(0) != null) && (player.inventory.armorItemInSlot(0).getItem() == ModItems.powerBoots) && (this.getEnergyStored(armor) > 100)) {
 
                 player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20));
             }
@@ -174,7 +180,11 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
     }
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
-        list.add("Energy: " + this.energyTag + " / " + energyMax);
+        if (stack.stackTagCompound == null) {
+            Reference.setDefaultEnergyTag(stack, 0);
+        }
+
+        list.add("Energy: " + stack.stackTagCompound.getInteger("EnergyT45") + " / " + energyMax);
     }
 
 

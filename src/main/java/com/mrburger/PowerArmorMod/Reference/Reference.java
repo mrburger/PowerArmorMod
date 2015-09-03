@@ -17,7 +17,7 @@ public class Reference {
     public static void setDefaultEnergyTag(ItemStack stack, int energy) {
         if (stack.getTagCompound() == null)
             stack.setTagCompound(new NBTTagCompound());
-        stack.getTagCompound().setInteger(energyTag, energy);
+        stack.getTagCompound().setInteger("Energy", energy);
     }
 
 

@@ -27,11 +27,11 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
     }
 
-    private double totalAbsorption = 0.95D;
+    private double totalAbsorption = 0.9D;
     private int transferMax = 10000;
-    private int energyMax = (int) 1E8;
+    private int energyMax = (int) 1E7;
     private int damageEnergy = 200;
-    public static final String energyTag = "Energy";
+
 
 
     protected double absoptionAmt() {
@@ -51,6 +51,12 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
 
     }
     @Override
+    public boolean getIsRepairable(ItemStack itemRepair, ItemStack stack) {
+
+        return false;
+    }
+
+    @Override
     public int getDisplayDamage(ItemStack stack) {
 
         if (stack.stackTagCompound == null) {
@@ -69,14 +75,14 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (container.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(container, 0);
         }
-        int stored = container.stackTagCompound.getInteger(energyTag);
+        int stored = container.stackTagCompound.getInteger("EnergyT51");
         int receive = Math
                 .min(maxReceive, Math.min(getMaxEnergyStored(container)
                         - stored, transferMax));
 
         if (!simulate) {
             stored += receive;
-            container.stackTagCompound.setInteger(energyTag, stored);
+            container.stackTagCompound.setInteger("EnergyT51", stored);
         }
         return receive;
     }
@@ -86,12 +92,12 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (container.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(container, 0);
         }
-        int stored = container.stackTagCompound.getInteger(energyTag);
+        int stored = container.stackTagCompound.getInteger("EnergyT51");
         int extract = Math.min(maxExtract, stored);
 
         if (!simulate) {
             stored -= extract;
-            container.stackTagCompound.setInteger(energyTag, stored);
+            container.stackTagCompound.setInteger("EnergyT51", stored);
         }
         return extract;
     }
@@ -101,7 +107,7 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         if (container.stackTagCompound == null) {
             Reference.setDefaultEnergyTag(container, 0);
         }
-        return container.stackTagCompound.getInteger(energyTag);
+        return container.stackTagCompound.getInteger("EnergyT51");
     }
 
     @Override
@@ -127,15 +133,15 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         extractEnergy(stack, damage * damageEnergy, false);
     }
     @Override
-    public void onArmorTick(World w, EntityPlayer player, ItemStack me) {
+    public void onArmorTick(World w, EntityPlayer player, ItemStack armor) {
         if (player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() == ModItems.t51Chest
                 && player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() == ModItems.t51Legs
-                && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.t51Boots) {
+                && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.t51Boots && (this.getEnergyStored(armor) > 100)) {
             player.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 20));
             if (player.inventory.armorItemInSlot(3) != null && player.inventory.armorItemInSlot(3).getItem() == ModItems.t51Helmet
                     && player.inventory.armorItemInSlot(2) != null && player.inventory.armorItemInSlot(2).getItem() == ModItems.t51Chest
                     && player.inventory.armorItemInSlot(1) != null && player.inventory.armorItemInSlot(1).getItem() == ModItems.t51Legs
-                    && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.t51Boots)
+                    && player.inventory.armorItemInSlot(0) != null && player.inventory.armorItemInSlot(0).getItem() == ModItems.t51Boots && (this.getEnergyStored(armor) > 100))
                 player.addPotionEffect(new PotionEffect(Potion.resistance.id, 20, 1));
 
         }
@@ -147,6 +153,10 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
     }
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
-        list.add("Energy: " + stack.stackTagCompound.getInteger("Energy") + " / " + energyMax);
+        if (stack.stackTagCompound == null) {
+            Reference.setDefaultEnergyTag(stack, 0);
+        }
+
+        list.add("Energy: " + stack.stackTagCompound.getInteger("EnergyT51") + " / " + energyMax);
     }
 }

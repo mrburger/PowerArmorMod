@@ -14,10 +14,12 @@ public class ModItems {
 
     public static ItemArmor.ArmorMaterial POWERARMOR = EnumHelper.addArmorMaterial("POWERARMOR", 100, new int[]{3, 8, 6, 3}, 0);
     public static ItemArmor.ArmorMaterial T51B = EnumHelper.addArmorMaterial("T51B", 1000, new int[]{3, 8, 6, 3}, 0);
+    public static ItemArmor.ArmorMaterial ENCLAVE = EnumHelper.addArmorMaterial("ENCLAVE", 1000, new int[]{3, 8, 6, 3}, 0);
+    public static Item.ToolMaterial SUPERSLEDGE = EnumHelper.addToolMaterial("SUPERSLEDGE", 0, 100, 1.0F, 2.0F,0 );
 
 
     public static Item vanadium;
-public static Item vanadiumIngot;
+    public static Item vanadiumIngot;
     public static Item spacealloy;
     public static Item armorplate;
     public static Item powerHelmet;
@@ -30,6 +32,7 @@ public static Item vanadiumIngot;
     public static Item t51Legs;
     public static Item t51Boots;
     public static Item mfPack;
+    public static Item superSledge;
 
     public static final void init() {
         vanadium = new Item().setUnlocalizedName("vanadium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"vanadium");
@@ -49,6 +52,8 @@ public static Item vanadiumIngot;
 
         mfPack =  new Item().setUnlocalizedName("mfpack").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID + ":" + "mfpack");
         GameRegistry.registerItem(mfPack, "mfpack");
+
+        GameRegistry.registerItem(superSledge = new ItemSuperSledge("supersledge", SUPERSLEDGE), "supersledge");
 
         GameRegistry.registerItem(powerHelmet = new T45DArmor("powerhelmet", POWERARMOR, "powerhelmet", 0), "powerhelmet");
         GameRegistry.registerItem(powerChest = new T45DArmor("powerchest", POWERARMOR, "powerchest", 1), "powerchest");
