@@ -1,10 +1,14 @@
 package com.mrburger.PowerArmorMod.item;
 
 import com.mrburger.PowerArmorMod.Reference.Reference;
+import com.mrburger.PowerArmorMod.Render.RenderSuperSledge;
+import com.mrburger.PowerArmorMod.item.model.ModelSuperSledge;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraftforge.client.IItemRenderer;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.util.EnumHelper;
 
 /**
@@ -64,6 +68,10 @@ public class ModItems {
         GameRegistry.registerItem(t51Chest = new T51BArmor("t51chest", T51B, "t51chest", 1), "t51chest");
         GameRegistry.registerItem(t51Legs = new T51BArmor("t51legs", T51B, "t51legs", 2), "t51legs");
         GameRegistry.registerItem(t51Boots = new T51BArmor("t51boots", T51B, "t51boots", 3), "t51boots");
+
+
+        MinecraftForgeClient.registerItemRenderer(ModItems.superSledge, (IItemRenderer)new RenderSuperSledge());
+
 
     }
 
