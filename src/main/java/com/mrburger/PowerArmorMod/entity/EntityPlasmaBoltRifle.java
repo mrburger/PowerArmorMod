@@ -1,16 +1,15 @@
 package com.mrburger.PowerArmorMod.entity;
 
-import com.mrburger.PowerArmorMod.item.model.ModelPlasmaBolt;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
-import java.util.Map;
 
 public class EntityPlasmaBoltRifle extends EntityThrowable {
-    private int speedProjectile = 1;
+
 
 
     public EntityPlasmaBoltRifle(World par1World) {
@@ -26,13 +25,17 @@ public class EntityPlasmaBoltRifle extends EntityThrowable {
     }
 
 
+
+
     @Override
     protected void onImpact(MovingObjectPosition movingPos) {
         if (movingPos.entityHit != null) {
-            float plasma = 20;
+            float plasma = 15;
 
             movingPos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), plasma);
+
         }
+        worldObj.spawnParticle("largesmoke", posX, posY, posZ, 0.0F, 0.0F, 0.0F);
         this.setDead();
     }
     @Override
@@ -43,7 +46,7 @@ public class EntityPlasmaBoltRifle extends EntityThrowable {
     }
     private void setSpeed()
     {
-        setThrowableHeading(this.motionX, this.motionY, this.motionZ, 1.0F, 1.0F);
+        setThrowableHeading(this.motionX, this.motionY, this.motionZ, 0.1F, 1.0F);
     }
 
 
