@@ -1,7 +1,12 @@
 package com.mrburger.PowerArmorMod;
 
+import com.mrburger.PowerArmorMod.Render.RenderPlasmaBolt;
+import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifle;
 import com.mrburger.PowerArmorMod.item.ModItems;
+import com.mrburger.PowerArmorMod.item.model.ModelPlasmaBolt;
+import com.mrburger.PowerArmorMod.item.model.ModelSuperSledge;
 import com.mrburger.PowerArmorMod.item.model.ModelT45DArmor;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 
@@ -20,6 +25,8 @@ public class ClientProxy extends CommonProxy {public static final Map<Item, Mode
         armorModels.put(ModItems.powerLeggings, T45Legs);
         armorModels.put(ModItems.powerBoots, T45Armor);
 
+        RenderingRegistry.registerEntityRenderingHandler(EntityPlasmaBoltRifle.class,
+                new RenderPlasmaBolt(new ModelPlasmaBolt(), 0.5F));
     }
 
 

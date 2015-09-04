@@ -37,6 +37,7 @@ public class ModItems {
     public static Item t51Boots;
     public static Item mfPack;
     public static Item superSledge;
+    public static Item plasmaRifle;
 
     public static final void init() {
         vanadium = new Item().setUnlocalizedName("vanadium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"vanadium");
@@ -58,6 +59,8 @@ public class ModItems {
         GameRegistry.registerItem(mfPack, "mfpack");
 
         GameRegistry.registerItem(superSledge = new ItemSuperSledge("supersledge", SUPERSLEDGE), "supersledge");
+
+        GameRegistry.registerItem(plasmaRifle = new ItemPlasmaRifle("plasmarifle"), "plasmarifle");
 
         GameRegistry.registerItem(powerHelmet = new T45DArmor("powerhelmet", POWERARMOR, "powerhelmet", 0), "powerhelmet");
         GameRegistry.registerItem(powerChest = new T45DArmor("powerchest", POWERARMOR, "powerchest", 1), "powerchest");
