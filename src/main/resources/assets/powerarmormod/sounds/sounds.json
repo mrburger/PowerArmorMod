@@ -1,0 +1,15 @@
+{
+  "plasmabolt": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "plasmabolt",
+        "stream": false
+      }
+    ]
+  }
+
+
+
+
+}
