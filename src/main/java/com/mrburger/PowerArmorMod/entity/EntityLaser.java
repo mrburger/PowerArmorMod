@@ -1,5 +1,6 @@
 package com.mrburger.PowerArmorMod.entity;
 
+import com.mrburger.PowerArmorMod.world.DamageSourceEnergy;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
@@ -21,7 +22,7 @@ public class EntityLaser extends EntityThrowable {
         if (movingPos.entityHit != null) {
             float laser = 10;
 
-            movingPos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), laser);
+            movingPos.entityHit.attackEntityFrom(DamageSourceEnergy.energy, laser);
 
         }
         worldObj.spawnParticle("largesmoke", posX, posY, posZ, 0.0F, 0.0F, 0.0F);

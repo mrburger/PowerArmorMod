@@ -4,6 +4,7 @@ package com.mrburger.PowerArmorMod.item;
 import cofh.api.energy.IEnergyContainerItem;
 import com.mrburger.PowerArmorMod.ClientProxy;
 import com.mrburger.PowerArmorMod.Reference.Reference;
+import com.mrburger.PowerArmorMod.world.DamageSourceEnergy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -143,6 +144,7 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
     public ArmorProperties getProperties(EntityLivingBase player, ItemStack armor, DamageSource source, double damage, int slot) {
         if (source.damageType.equals(DamageSource.fall.damageType) && armor.getItem() == ModItems.powerBoots) return new ArmorProperties(1, 0.95D, 1000);
         if (source.damageType.equals(DamageSource.magic.damageType) && armor.getItem() == ModItems.powerChest) return new ArmorProperties(1, 0.75D, 1000);
+        if (source.damageType.equals(DamageSourceEnergy.energy.damageType) && armor.getItem() == ModItems.powerChest) return new ArmorProperties(1, 0.3D, 1000);
         //  if (source.damageType.equals(DamageSource.isExplosion) && armor.getItem() == ModItems.powerChest) return new ArmorProperties(1, 1.0D, 1000);
         return new ArmorProperties(1, (absoptionAmt()*totalAbsorption), 1000);
     }

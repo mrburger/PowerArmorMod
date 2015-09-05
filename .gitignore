@@ -2,6 +2,7 @@
 Thumbs.db
 ehthumbs.db
 
+
 # Folder config file
 Desktop.ini
 
@@ -41,3 +42,21 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.info
+*.class
+out/production/PowerArmorMod/assets/powerarmormod/textures/models/plasmabolt.png
+out/production/PowerArmorMod/CoFH_at.cfg
+out/production/PowerArmorMod/assets/powerarmormod/textures/models/modelplasmacaster.png
+out/production/PowerArmorMod/assets/powerarmormod/textures/models/modelplasmacasterunique.png
+out/
+eclipse/
+.gradle/
+*.iml
+*.ipr
+*.iws
+gradle/
+gradle
+gradlew.bat
+*.gitignore
+build.gradle
+gradlew
