@@ -3,6 +3,7 @@ package com.mrburger.PowerArmorMod.Render;
 
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.item.model.ModelPlasmaCaster;
+import com.mrburger.PowerArmorMod.item.model.ModelPlasmaCasterUnique;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
 import net.minecraft.client.gui.inventory.GuiInventory;
@@ -13,14 +14,17 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
-public class RenderPlasmaCaster implements IItemRenderer {
+/**
+ * Created by mrburgerUS on 9/4/2015.
+ */
+public class RenderPlasmaCasterUnqiue implements IItemRenderer {
 
-    private ModelPlasmaCaster plasma;
-    public static ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "textures/models/modelplasmacaster.png" );
+    private ModelPlasmaCasterUnique plasma;
+    public static ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "textures/models/modelplasmacasterunique.png" );
 
-    public RenderPlasmaCaster(){
+    public RenderPlasmaCasterUnqiue(){
 
-        plasma = new ModelPlasmaCaster();
+        plasma = new ModelPlasmaCasterUnique();
 
 
     }
@@ -72,6 +76,7 @@ public class RenderPlasmaCaster implements IItemRenderer {
 
                 GL11.glScalef(1.1F, 1.1F, 1.1F);
                 GL11.glRotatef(-180, 1F, 1F, 0F);
+
 
                 boolean isFirstPerson = false;
 

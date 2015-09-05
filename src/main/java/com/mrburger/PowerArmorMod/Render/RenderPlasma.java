@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL12;
 public class RenderPlasma extends Render {
 
     private ModelPlasmaBolt plasmaentity;
-    public static ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "plasmabolt" );
+    public static ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "/textures/models/plasmabolt.png" );
 
     public RenderPlasma() {
         plasmaentity = new ModelPlasmaBolt();

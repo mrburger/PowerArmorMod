@@ -13,9 +13,11 @@ item.t51legs.name=T-51B Power Armor Leggings
 item.t51chest.name=T-51B Power Armor Chestplate
 item.t51boots.name=T-51B Power Armor Boots
 item.mfpack.name=TX-28 Microfusion Pack
+item.mfcell.name=Microfusion Cell
 item.supersledge.name=Super Sledge
 item.supersledgeunique=OH, BABY!
-item.plasmarifle.name= Plasma Caster
+item.plasmarifle.name=P94 Plasma Caster
+item.plasmarifleunique.name=The Smitty Special
 
 
 //Blocks

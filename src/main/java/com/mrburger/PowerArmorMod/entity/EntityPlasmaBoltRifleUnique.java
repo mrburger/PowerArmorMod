@@ -8,19 +8,19 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 
-public class EntityPlasmaBoltRifle extends EntityThrowable {
+public class EntityPlasmaBoltRifleUnique extends EntityThrowable {
 
 
 
-    public EntityPlasmaBoltRifle(World par1World) {
-        super(par1World);
+    public EntityPlasmaBoltRifleUnique(World world) {
+        super(world);
     }
 
-    public EntityPlasmaBoltRifle(World par1World, double arg1Double, double arg2Double, double arg3Double) {
+    public EntityPlasmaBoltRifleUnique(World par1World, double arg1Double, double arg2Double, double arg3Double) {
         super(par1World, arg1Double, arg2Double, arg3Double);
     }
 
-    public EntityPlasmaBoltRifle(World par1World, EntityLivingBase arg1EntityLivingBase) {
+    public EntityPlasmaBoltRifleUnique(World par1World, EntityLivingBase arg1EntityLivingBase) {
         super(par1World, arg1EntityLivingBase);
     }
 
@@ -30,7 +30,7 @@ public class EntityPlasmaBoltRifle extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition movingPos) {
         if (movingPos.entityHit != null) {
-            float plasma = 20;
+            float plasma = 10;
 
             movingPos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), plasma);
             worldObj.spawnParticle("magicCrit", posX, posY, posZ, 0.0F, 0.0F, 0.0F);

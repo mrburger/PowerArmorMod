@@ -7,7 +7,8 @@ import net.minecraft.item.ItemStack;
 
 //Working on, does not currently work.
 public class HoldingWeapon extends RenderPlayer {
-    @Override
+
+
     protected void renderLivingAt(
             AbstractClientPlayer par1AbstractClientPlayer, double par2,
             double par4, double par6) {

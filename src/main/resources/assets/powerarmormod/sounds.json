@@ -7,8 +7,25 @@
         "stream": false
       }
     ]
+  },
+  "plasmafire": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "plasmafire",
+        "stream": false
+      }
+    ]
+  },
+  "laserfire": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "laserfire",
+        "stream": false
+      }
+    ]
   }
-
 
 
 

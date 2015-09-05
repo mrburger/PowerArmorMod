@@ -2,6 +2,7 @@ package com.mrburger.PowerArmorMod.item;
 
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifle;
+import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifleUnique;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,13 +15,11 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemPlasmaRifle extends Item {
+public class ItemPlasmaRifleUnique extends Item {
 
     public int type;
-    int fireRate = 1;
-    int fireTick = fireRate;
 
-    public ItemPlasmaRifle(String unlocalizedName) {
+    public ItemPlasmaRifleUnique(String unlocalizedName) {
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
         this.setMaxStackSize(1);
@@ -29,7 +28,7 @@ public class ItemPlasmaRifle extends Item {
 
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.rare;
+        return EnumRarity.epic;
     }
 
     @Override
@@ -46,35 +45,23 @@ public class ItemPlasmaRifle extends Item {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (!world.isRemote) {
-            if (this.fireTick == this.fireRate && this.fireTick != 0) {
-                if (player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(ModItems.mfCell)) {
-                    world.playSoundAtEntity(player, "powerarmormod:plasmafire", 1.0F, 1.0F);
-                    world.spawnEntityInWorld(new EntityPlasmaBoltRifle(world, player));
-                }
-
-                this.fireTick = 0;
-            } else {
-                ++this.fireTick;
-            }
-            if (this.fireRate == 0) {
-                if (player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(ModItems.mfCell)) {
-                    world.playSoundAtEntity(player, "powerarmormod:plasmafire", 1.0F, 1.0F);
-                    world.spawnEntityInWorld(new EntityPlasmaBoltRifle(world, player));
-                }
-            }
-
-        }
-        return stack;
-    }
-        @Override
-        @SideOnly(Side.CLIENT)
-        public boolean isFull3D ()
+    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,EntityPlayer par3EntityPlayer) {
+        if(par3EntityPlayer.capabilities.isCreativeMode||par3EntityPlayer.inventory.consumeInventoryItem(ModItems.mfCell))
         {
-            return true;
+            par2World.playSoundAtEntity(par3EntityPlayer, "powerarmormod:plasmafire", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+            if (!par2World.isRemote)
+            {
+                par2World.spawnEntityInWorld(new EntityPlasmaBoltRifleUnique(par2World, par3EntityPlayer));
+            }
         }
+        return par1ItemStack;
     }
-
+    @Override
+    @SideOnly(Side.CLIENT)
+    public boolean isFull3D()
+    {
+        return true;
+    }
+}
 
 
