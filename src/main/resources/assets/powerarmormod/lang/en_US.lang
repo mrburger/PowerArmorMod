@@ -22,3 +22,6 @@ item.plasmarifleunique.name=The Smitty Special
 
 //Blocks
 tile.vanadiumOre.name= Vanadium Ore
+
+//Tab
+itemGroup.powerArmor=Power Armor

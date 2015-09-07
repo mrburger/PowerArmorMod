@@ -1,12 +1,12 @@
 package com.mrburger.PowerArmorMod.item;
 
+import com.mrburger.PowerArmorMod.Main;
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.Render.RenderPlasmaCaster;
 import com.mrburger.PowerArmorMod.Render.RenderPlasmaCasterUnqiue;
 import com.mrburger.PowerArmorMod.Render.RenderSuperSledge;
 import com.mrburger.PowerArmorMod.item.model.ModelSuperSledge;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.client.IItemRenderer;
@@ -45,33 +45,33 @@ public class ModItems {
     public static Item ceramicPlate;
     public static Item ceramicMix;
     public static Item laserRifle;
-
+		
     public static final void init() {
-        vanadium = new Item().setUnlocalizedName("vanadium").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"vanadium");
+        vanadium = new Item().setUnlocalizedName("vanadium").setCreativeTab(Main.tab).setTextureName(Reference.MODID+":"+"vanadium");
         GameRegistry.registerItem(vanadium, "vanadium");
-
-        vanadiumIngot = new Item().setUnlocalizedName("vanadiumingot").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"vanadiumingot");
+				
+        vanadiumIngot = new Item().setUnlocalizedName("vanadiumingot").setCreativeTab(Main.tab).setTextureName(Reference.MODID+":"+"vanadiumingot");
         GameRegistry.registerItem(vanadiumIngot, "vanadiumingot");
 
-        spacealloy = new Item().setUnlocalizedName("spacealloy").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"spacealloy");
+        spacealloy = new Item().setUnlocalizedName("spacealloy").setCreativeTab(Main.tab).setTextureName(Reference.MODID+":"+"spacealloy");
         GameRegistry.registerItem(spacealloy, "spacealloy");
 
-        armorplate = new Item().setUnlocalizedName("armorplate").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"armorplate");
+        armorplate = new Item().setUnlocalizedName("armorplate").setCreativeTab(Main.tab).setTextureName(Reference.MODID+":"+"armorplate");
         GameRegistry.registerItem(armorplate, "armorplate");
 
-        advarmorplate = new Item().setUnlocalizedName("advarmorplate").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID+":"+"advarmorplate");
+        advarmorplate = new Item().setUnlocalizedName("advarmorplate").setCreativeTab(Main.tab).setTextureName(Reference.MODID+":"+"advarmorplate");
         GameRegistry.registerItem(advarmorplate, "advarmorplate");
 
-        mfPack =  new Item().setUnlocalizedName("mfpack").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID + ":" + "mfpack");
+        mfPack =  new Item().setUnlocalizedName("mfpack").setCreativeTab(Main.tab).setTextureName(Reference.MODID + ":" + "mfpack");
         GameRegistry.registerItem(mfPack, "mfpack");
 
-        mfCell =  new Item().setUnlocalizedName("mfcell").setMaxStackSize(16).setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID + ":" + "mfcell");
+        mfCell =  new Item().setUnlocalizedName("mfcell").setMaxStackSize(16).setCreativeTab(Main.tab).setTextureName(Reference.MODID + ":" + "mfcell");
         GameRegistry.registerItem(mfCell, "mfcell");
 
-        ceramicPlate =  new Item().setUnlocalizedName("ceramicplate").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID + ":" + "ceramicplate");
+        ceramicPlate =  new Item().setUnlocalizedName("ceramicplate").setCreativeTab(Main.tab).setTextureName(Reference.MODID + ":" + "ceramicplate");
         GameRegistry.registerItem(ceramicPlate, "ceramicplate");
 
-        ceramicMix =  new Item().setUnlocalizedName("ceramicmix").setCreativeTab(CreativeTabs.tabMaterials).setTextureName(Reference.MODID + ":" + "ceramicmix");
+        ceramicMix =  new Item().setUnlocalizedName("ceramicmix").setCreativeTab(Main.tab).setTextureName(Reference.MODID + ":" + "ceramicmix");
         GameRegistry.registerItem(ceramicMix, "ceramicmix");
 
 
