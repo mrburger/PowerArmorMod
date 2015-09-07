@@ -19,17 +19,19 @@ public class ModCrafting {
         GameRegistry.addRecipe(new ItemStack(ModItems.spacealloy, 2), new Object[]{"#I", "I#", '#', Items.iron_ingot, 'I', ModItems.vanadiumIngot});
         GameRegistry.addRecipe(new ItemStack(ModItems.spacealloy, 2), new Object[]{"##", "##", '#', ModItems.spacealloy});
         GameRegistry.addRecipe(new ItemStack(ModItems.advarmorplate, 2), new Object[]{"#I", "I#", '#', Items.netherbrick, 'I', ModItems.vanadiumIngot});
-        GameRegistry.addRecipe(new ItemStack(ModItems.mfPack), new Object[]{"*#*", "rrr", "*#*", '*', ModItems.vanadiumIngot, '#', Items.gold_ingot, 'r', ModItems.mfCell});
+        GameRegistry.addRecipe(new ItemStack(ModItems.mfPack), new Object[]{"*#*", "rrr", "*#*", '*', ModItems.vanadiumIngot, '#', ModItems.mfCell, 'r', Items.redstone});
         GameRegistry.addRecipe(new ItemStack(ModItems.mfCell,16), new Object[]{" v ","#r#"," # ", '#', ModItems.ceramicPlate, 'r', Items.redstone, 'v', ModItems.vanadiumIngot});
         GameRegistry.addRecipe(new ItemStack(ModItems.ceramicMix, 8), new Object[]{"bnb", "nrn", "bnb", 'n', Items.netherbrick, 'b', Items.brick, 'r', Items.blaze_powder});
 
         GameRegistry.addRecipe(new ItemStack(ModItems.powerHelmet), new Object[]{"#I#","# #", '#', ModItems.armorplate, 'I', ModItems.mfPack});
         GameRegistry.addRecipe(new ItemStack(ModItems.powerChest), new Object[]{"# #","#I#","###", '#', ModItems.armorplate, 'I', ModItems.mfPack});
         GameRegistry.addRecipe(new ItemStack(ModItems.powerLeggings), new Object[]{"#I#","# #","# #", '#', ModItems.armorplate, 'I', ModItems.mfPack});
-        GameRegistry.addRecipe(new ItemStack(ModItems.powerHelmet), new Object[]{"# #","#I#", '#', ModItems.armorplate, 'I', ModItems.mfPack});
+        GameRegistry.addRecipe(new ItemStack(ModItems.powerBoots), new Object[]{"# #","#I#", '#', ModItems.armorplate, 'I', ModItems.mfPack});
 
-
-
+        GameRegistry.addRecipe(new ItemStack(ModItems.t51Helmet), new Object[]{"#I#","# #", '#', ModItems.advarmorplate, 'I', ModItems.mfPack});
+        GameRegistry.addRecipe(new ItemStack(ModItems.t51Chest), new Object[]{"#I#","# #", '#', ModItems.advarmorplate, 'I', ModItems.mfPack});
+        GameRegistry.addRecipe(new ItemStack(ModItems.t51Legs), new Object[]{"#I#","# #", '#', ModItems.advarmorplate, 'I', ModItems.mfPack});
+        GameRegistry.addRecipe(new ItemStack(ModItems.t51Boots), new Object[]{"#I#","# #", '#', ModItems.advarmorplate, 'I', ModItems.mfPack});
 
     }
 

@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 public class RenderSuperSledge implements IItemRenderer {
 
     private ModelSuperSledge sledgehammer;
-    public static ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "textures/models/supersledgemodel.png" );
+    public static ResourceLocation texture = new ResourceLocation(Reference.MODID + ":" + "textures/models/supersledge.png" );
 
 
     public RenderSuperSledge(){

@@ -3,6 +3,7 @@ package com.mrburger.PowerArmorMod.item;
 
 import cofh.api.energy.IEnergyContainerItem;
 import com.mrburger.PowerArmorMod.ClientProxy;
+import com.mrburger.PowerArmorMod.Main;
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.world.DamageSourceEnergy;
 import cpw.mods.fml.relauncher.Side;
@@ -34,7 +35,7 @@ public class T45DArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         this.textureName = textureName;
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
-
+        this.setCreativeTab(Main.tab);
 
     }
     private double totalAbsorption = 0.85D;

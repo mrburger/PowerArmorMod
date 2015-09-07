@@ -2,6 +2,7 @@ package com.mrburger.PowerArmorMod;
 
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.Render.HoldingWeapon;
+import com.mrburger.PowerArmorMod.Render.RenderLaserBolt;
 import com.mrburger.PowerArmorMod.Render.RenderPlasma;
 import com.mrburger.PowerArmorMod.entity.EntityLaser;
 import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifle;
@@ -34,8 +35,8 @@ public class ClientProxy extends CommonProxy {public static final Map<Item, Mode
         EntityRegistry.registerModEntity(EntityPlasmaBoltRifleUnique.class, "plasmaboltunique", 1, Reference.MODID, 80, 3, true);
         RenderingRegistry.registerEntityRenderingHandler(EntityPlasmaBoltRifleUnique.class, new RenderPlasma());
 
-        EntityRegistry.registerModEntity(EntityLaser.class, "laser", 1, Reference.MODID, 80, 3, true);
-        RenderingRegistry.registerEntityRenderingHandler(EntityLaser.class, new RenderPlasma());
+        EntityRegistry.registerModEntity(EntityLaser.class, "laser", 2, Reference.MODID, 80, 100, true);
+        RenderingRegistry.registerEntityRenderingHandler(EntityLaser.class, new RenderLaserBolt());
 
         //RenderingRegistry.registerEntityRenderingHandler(EntityPlayer.class, new HoldingWeapon());
     }

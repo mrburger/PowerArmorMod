@@ -13,9 +13,18 @@ import net.minecraft.world.World;
 public class EntityLaser extends EntityThrowable {
 
 
+    public EntityLaser(World par1World) {
+        super(par1World);
+    }
+
+    public EntityLaser(World par1World, double arg1Double, double arg2Double, double arg3Double) {
+        super(par1World, arg1Double, arg2Double, arg3Double);
+    }
+
     public EntityLaser(World par1World, EntityLivingBase arg1EntityLivingBase) {
         super(par1World, arg1EntityLivingBase);
     }
+
 
     @Override
     protected void onImpact(MovingObjectPosition movingPos) {

@@ -2,50 +2,42 @@ package com.mrburger.PowerArmorMod.item;
 
 import com.mrburger.PowerArmorMod.Main;
 import com.mrburger.PowerArmorMod.Reference.Reference;
-import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifle;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import com.mrburger.PowerArmorMod.entity.EntityLaser;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemPlasmaRifle extends Item {
 
-    public int type;
-    int fireRate = 1;
-    int fireTick = fireRate;
+public class ItemLaserRifleUnique extends Item {
 
-    public ItemPlasmaRifle(String unlocalizedName) {
+    int fireRate;
+    int fireTick;
+
+
+
+    public ItemLaserRifleUnique(String unlocalizedName) {
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
         this.setMaxStackSize(1);
         this.setCreativeTab(Main.tab);
+        this.fireRate = 2;
+        this.fireTick = this.fireRate;
     }
 
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.rare;
+        return EnumRarity.epic;
     }
 
     @Override
-    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean currentItem) {
-        EntityPlayer player = (EntityPlayer) entity;
+    public int getMaxItemUseDuration(ItemStack stack){
 
-        if (!currentItem) {
-            return;
-        } else {
-            player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 10));
-            player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 10, 3));
-
-        }
+        return 20;
     }
 
     @Override
@@ -53,8 +45,8 @@ public class ItemPlasmaRifle extends Item {
         if (!world.isRemote) {
             if (this.fireTick == this.fireRate && this.fireTick != 0) {
                 if (player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(ModItems.mfCell)) {
-                    world.playSoundAtEntity(player, "powerarmormod:plasmafire", 1.0F, 1.0F);
-                    world.spawnEntityInWorld(new EntityPlasmaBoltRifle(world, player));
+                    world.playSoundAtEntity(player, "powerarmormod:laserfire", 1.0F, 1.0F);
+                    world.spawnEntityInWorld(new EntityLaser(world, player));
                 }
 
                 this.fireTick = 0;
@@ -63,25 +55,16 @@ public class ItemPlasmaRifle extends Item {
             }
             if (this.fireRate == 0) {
                 if (player.capabilities.isCreativeMode || player.inventory.consumeInventoryItem(ModItems.mfCell)) {
-                    world.playSoundAtEntity(player, "powerarmormod:plasmafire", 1.0F, 1.0F);
-                    world.spawnEntityInWorld(new EntityPlasmaBoltRifle(world, player));
+                    world.playSoundAtEntity(player, "powerarmormod:laserfire", 1.0F, 1.0F);
+                    world.spawnEntityInWorld(new EntityLaser(world, player));
                 }
             }
 
         }
         return stack;
     }
-        @Override
-        @SideOnly(Side.CLIENT)
-        public boolean isFull3D ()
-        {
-            return true;
-        }
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
-        list.add("A Winchester P94 Plasma Caster.");
+        list.add("A Prototype Laser Rifle.");
     }
-    }
-
-
-
+}

@@ -1,13 +1,16 @@
 package com.mrburger.PowerArmorMod.item;
 
+import com.mrburger.PowerArmorMod.Main;
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.entity.EntityLaser;
-import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifle;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 
 public class ItemLaserRifle extends Item {
@@ -21,9 +24,14 @@ public class ItemLaserRifle extends Item {
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
         this.setMaxStackSize(1);
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(Main.tab);
         this.fireRate = 2;
         this.fireTick = this.fireRate;
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack stack) {
+        return EnumRarity.rare;
     }
 
     @Override
@@ -55,6 +63,8 @@ public class ItemLaserRifle extends Item {
         }
         return stack;
     }
-
-
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
+    list.add("A Space-Age Laser Rifle, Model AER-9");
+    }
 }

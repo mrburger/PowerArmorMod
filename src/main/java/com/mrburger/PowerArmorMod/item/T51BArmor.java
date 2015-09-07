@@ -2,6 +2,7 @@ package com.mrburger.PowerArmorMod.item;
 
 
 import cofh.api.energy.IEnergyContainerItem;
+import com.mrburger.PowerArmorMod.Main;
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +26,8 @@ public class T51BArmor extends ItemArmor implements ISpecialArmor, IEnergyContai
         this.textureName = textureName;
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
+        this.setCreativeTab(Main.tab);
+
     }
 
     private double totalAbsorption = 0.9D;

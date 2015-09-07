@@ -1,5 +1,6 @@
 package com.mrburger.PowerArmorMod.item;
 
+import com.mrburger.PowerArmorMod.Main;
 import com.mrburger.PowerArmorMod.Reference.Reference;
 import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifle;
 import com.mrburger.PowerArmorMod.entity.EntityPlasmaBoltRifleUnique;
@@ -15,6 +16,8 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 public class ItemPlasmaRifleUnique extends Item {
 
     public int type;
@@ -23,7 +26,7 @@ public class ItemPlasmaRifleUnique extends Item {
         this.setUnlocalizedName(unlocalizedName);
         this.setTextureName(Reference.MODID + ":" + unlocalizedName);
         this.setMaxStackSize(1);
-        this.setCreativeTab(CreativeTabs.tabCombat);
+        this.setCreativeTab(Main.tab);
     }
 
     @Override
@@ -61,6 +64,11 @@ public class ItemPlasmaRifleUnique extends Item {
     public boolean isFull3D()
     {
         return true;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean check) {
+        list.add("An overclocked P94.");
     }
 }
 

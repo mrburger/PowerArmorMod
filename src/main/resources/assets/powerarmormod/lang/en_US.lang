@@ -18,8 +18,13 @@ item.supersledge.name=Super Sledge
 item.supersledgeunique=OH, BABY!
 item.plasmarifle.name=P94 Plasma Caster
 item.plasmarifleunique.name=The Smitty Special
-item.laserrifle.name=AER9 Laser Rifle
-
+item.laserrifle.name=AER-9 Laser Rifle
+item.laserrifleunique.name=Wazer Wifle
+item.ceramicplate.name=High-Strength Ceramic Plate
+item.ceramicmix.name=Ceramic Mix
 
 //Blocks
 tile.vanadiumOre.name= Vanadium Ore
+
+//Tab
+itemGroup.powerArmor=Power Armor
